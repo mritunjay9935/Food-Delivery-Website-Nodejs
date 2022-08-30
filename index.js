@@ -31,12 +31,9 @@ app.get('/',function(req,res){
         database:"delivery"
     })
 
-    con.query("SELECT * FROM products",(err,result)=>{
+    con.query("SELECT * FROM poducts",(err,result)=>{
 
         res.render('pages/index',{result:result});
-
-
-
     })
 
     
@@ -44,5 +41,24 @@ app.get('/',function(req,res){
 
 
 });
+
+
+
+
+
+app.post('/add_to_cart',function(req,res){
+
+     var id = req.body.id;
+     var name = req.body.name;
+     var price = req.body.price;
+     var sale_price = req.body.sale_price;
+     var quantity = req.body.quantity;
+     var image = req.body.image;
+     var product = {id:id,name:name,price:price,sale_price:sale_price,quantity:quantity,image:image}
+     
+
+
+
+})
 
 
